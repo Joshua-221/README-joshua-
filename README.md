@@ -1,69 +1,66 @@
 # Tecnológico de Software
 ## Materia: Fundamentos de álgebra
 ## Alumno: Joshua Isaí Cruz Mosqueda
-## Actividad #16.  Matrices documentación
+## Actividad #18. Matrices: Determinantes y operaciones básicas
 ___
 #Objetivo 
 
-Entender más con las clasificaciones y operaciones básicas de las matrices usando multiplicación, transposición, suma y resta 
+Realizar ejercicios prácticos sobre el cálculo de determinantes de matrices de distintos tamaños (2x2, 3x3 y 4x4) usando varios métodos, además de comprobar sus propiedades y sus aplicaciones geométricas.
 ___
 
 ## Índice
-•⁠  ⁠[Ejercicio 1: Clasificación de matrices](#ejercicio-1-clasificación-de-matrices)
-•⁠  ⁠[Ejercicio 2: Operaciones con matrices](#ejercicio-2-operaciones-con-matrices)
-•⁠  ⁠[Ejercicio 3: Multiplicación cadena](#ejercicio-3-multiplicación-cadena)
+- [Ejercicio 1: Determinantes 2x2](#ejercicio-1-determinantes-2x2)
+- [Ejercicio 2: Regla de Sarrus](#ejercicio-2-regla-de-sarrus)
+- [Ejercicio 3: Método de cofactores](#ejercicio-3-método-de-cofactores)
+- [Ejercicio 4: Verificar propiedades](#ejercicio-4-verificar-propiedades)
+- [Ejercicio 5: Aplicación geométrica](#ejercicio-5-aplicación-geométrica)
+---
+
+## Ejercicio 1: Determinantes 2x2
+
+### Objetivo
+Calcular el determinante de matrices 2x2 usando la fórmula correspondiente y aplicar este resultado en ejercicios básicos.
 
 ---
 
-# Ejercicio 1: Clasificación de matrices
+Calcula el determinante de las siguientes matrices 2x2:
 
-## Objetivo del ejercicio: 
+$$A = \begin{pmatrix}
+5 & 2 \\
+3 & 1  
+\end{pmatrix}, \quad 
+B = \begin{pmatrix}
+-1 & 4 \\
+2 & -8
+\end{pmatrix}$$
 
-poder identificar y clasificar diferentes tipos de matrices con respecto a sus propiedades 
+$$C = \begin{pmatrix}
+6 & 9 \\
+2 & 3
+\end{pmatrix}, \quad 
+D = \begin{pmatrix}
+0 & 5 \\
+-5 & 0
+\end{pmatrix}$$
 
+### Solución
 
-### a) 
+**Paso 1:** Para una matriz 2x2, el determinante se obtiene con:
+$$\det(A) = ad - bc$$
 
-$$A = \begin{bmatrix}
-1 & 0 \\
-0 & 1 
-\end{bmatrix}$$
+**Paso 2:** Determinantes de cada matriz:
 
-Es una matriz identidad, porque su diagonal inicial está compuesta por *unos* y los demás elementos con ceros. 
+- **A:**  
+  $$\det(A) = (5)(1) - (2)(3) = -1$$
 
+- **B:**  
+  $$\det(B) = (-1)(-8) - (4)(2) = 0$$
 
-### b) 
+- **C:**  
+  $$\det(C) = (6)(3) - (9)(2) = 0$$
 
-$$ B = \begin{bmatrix}
-3 & 0 & 0 \\
-0 & -2 & 0 \\
-0 & 0 & 5 
-\end{bmatrix}  $$
-
-Es una matriz diagonal, porque los elementos están compuestos por ceros *exceptuando* su diagonal inicial.
-
-
-### c)
-
-$$C = \begin{bmatrix}
-2 & 1 & 4 \\
-1 & 3 & 5 \\
-4 & 5 & 6 
-\end{bmatrix}  $$
-
-Es una matriz simétrica, ya que $a_ij = a_ji$ si es simétrica con respecto a su diagonal inicial.
-
-
-### d)
-
-$$ D = \begin{bmatrix}
-1 & 2 & 3 \\
-0 & 4 & 5 \\
-0 & 0 & 6 
-\end{bmatrix}  $$
-
-Es una matriz triangular superior, ya que los elementos debajo de la diagonal inicial son ceros.
-
+- **D:**  
+  $$\det(D) = (0)(0) - (5)(-5) = 25$$
 ---
 
 # Ejercicio 2: Operaciones con matrices
