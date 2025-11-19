@@ -149,12 +149,12 @@ $$\det(F) = (-16 + 0 + 6) - (36 + 0 + 2) = -48$$
 
 ## Ejercicio 3: Método de cofactores
 
-### Objetivo
-Calcular el determinante de una matriz 3x3 usando cofactores.
+### Objetivo del ejercicio
+Calcular el determinante de matrices 4x4 utilizando el método de cofactores y aplicar este conocimiento en la resolución de problemas prácticos.
 
 ---
 
-Determina el valor de:
+Calcula usando cofactores (expandir por la fila o columna más conveniente):
 
 $$G = \begin{pmatrix}
 1 & 0 & 2 \\
@@ -164,40 +164,27 @@ $$G = \begin{pmatrix}
 
 ### Solución
 
-**Método:**  
-Se elige una fila o columna, se aplican signos alternados y cada elemento se multiplica por el determinante de su menor.
+**Paso 1:** Procedimiento del método de cofactores:
+1. La primera columna se le agrega un signo positivo y negativo de forma alternada.
+2. Se multiplica cada elemento de la fila o columna seleccionada por el determinante de la matriz que resulta al eliminar la fila y columna del elemento seleccionado.
 
----
+**Paso 2:** Expandimos por la primera fila:
 
-### Expansión por la primera fila
-
-$$
-\det(G) = 
-1 \cdot \begin{vmatrix}
+$$\det(G) = 1 \cdot \begin{vmatrix}
 3 & 1 \\
 0 & 1
-\end{vmatrix}
-- 
-0 \cdot \begin{vmatrix}
+\end{vmatrix} - 0 \cdot \begin{vmatrix}
 -1 & 1 \\
 2 & 1
-\end{vmatrix}
-+ 
-2 \cdot \begin{vmatrix}
+\end{vmatrix} + 2 \cdot \begin{vmatrix}
 -1 & 3 \\
 2 & 0
-\end{vmatrix}
-$$
+\end{vmatrix}$$
 
-**Cálculo de menores:**
+**Paso 3:** Calculamos los determinantes de las matrices 2x2 restantes:
 
-- $1(3\cdot1 - 1\cdot0) = 3$
-- $0(\dots) = 0$
-- $2(-1\cdot0 - 3\cdot2) = 2(-6) = -12$
-
-**Resultado final:**
-
-$$\det(G) = 3 - 12 = -9$$
+$$= 1 \cdot (3 \cdot 1 - 1 \cdot 0) + 2 \cdot (-1 \cdot 0 - 3 \cdot 2)$$
+$$= 1 \cdot 3 + 2 \cdot (-6) = 3 - 12 = -9$$
 
 ---
 
