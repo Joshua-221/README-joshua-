@@ -63,87 +63,87 @@ $$\det(A) = ad - bc$$
   $$\det(D) = (0)(0) - (5)(-5) = 25$$
 ---
 
-# Ejercicio 2: Operaciones con matrices
+## Ejercicio 2: Regla de Sarrus
 
-## Objetivo del ejercicio:
+### Objetivo
+Calcular el determinante de matrices 3x3 usando la regla de Sarrus.
 
-Realizar operaciones aritméticas básicas con matrices, incluyendo suma, resta, multiplicación y transposición.
+---
 
-Dadas las matrices:
+Determina el valor de:
 
-$$ A = \begin{bmatrix}
-2 & -1 \\
-3 & 4 
-\end{bmatrix}, \quad B = \begin{bmatrix}
-5 & 2 \\
--1 & 3 
-\end{bmatrix} $$
+$$E = \begin{pmatrix}
+1 & 2 & 3 \\
+0 & 1 & 4 \\
+5 & 6 & 0
+\end{pmatrix}, \quad 
+F = \begin{pmatrix}
+2 & -1 & 3 \\
+1 & 4 & 0 \\
+3 & 2 & -2
+\end{pmatrix}$$
 
-Calcula: 
+### Solución
 
-### a) Suma de matrices: \( A + B \)
-$$ A + B = \begin{bmatrix}
-2 + 5 & -1 + 2 \\
-3 + (-1) & 4 + 3
-\end{bmatrix} = \begin{bmatrix}
-7 & 1 \\
-2 & 7
-\end{bmatrix} $$
+**Regla de Sarrus:**  
+Extender la matriz copiando sus dos primeras filas y sumar diagonales principales menos diagonales secundarias.
 
-### b) Resta  y  multiplicación de matrices: \(2A - B \)
+---
 
-$$ 2A - B = 2 \begin{bmatrix}
-2 & -1 \\
-3 & 4
-\end{bmatrix} - \begin{bmatrix}
-5 & 2 \\    
--1 & 3
-\end{bmatrix} = \begin{bmatrix}
-4 & -2 \\
-6 & 8
-\end{bmatrix} - \begin{bmatrix}
-5 & 2 \\
--1 & 3
-\end{bmatrix} = \begin{bmatrix}
--1 & -4 \\
-7 & 5
-\end{bmatrix} $$
+### Matriz E
 
-### c) Multiplicación de matrices: \( AB \)
-$$ AB = \begin{bmatrix}
-2 & -1 \\
-3 & 4
-\end{bmatrix} \begin{bmatrix}
-5 & 2 \\
--1 & 3
-\end{bmatrix} = \begin{bmatrix}
-2\cdot5+(-1)\cdot(-1) & 2\cdot2+(-1)\cdot3\\
-3\cdot5+4\cdot(-1)    & 3\cdot2+4\cdot3
-\end{bmatrix} = \begin{bmatrix}
-11 & 1 \\
-11 & 18
-\end{bmatrix} $$
+**Extensión:**
 
-### d) Multiplicación de matrices: \( BA \)
-$$ BA = \begin{bmatrix}
-5 & 2 \\
--1 & 3
-\end{bmatrix} \begin{bmatrix}
-2 & -1 \\
-3 & 4
-\end{bmatrix} = \begin{bmatrix}
-(5\cdot2) + (2\cdot3) & (5\cdot-1) + (2\cdot4) \\
-(-1\cdot2) + (3\cdot3) & (-1\cdot-1) + (3\cdot4)
-\end{bmatrix} = \begin{bmatrix}
-16 & 3 \\
-7 & 13
-\end{bmatrix} $$
+$$\det(E) = \begin{pmatrix}
+1 & 2 & 3 \\
+0 & 1 & 4 \\
+5 & 6 & 0 \\
+\hline
+1 & 2 & 3 \\
+0 & 1 & 4
+\end{pmatrix}$$
 
-### e) Transpuesta de la matriz A: \( A^T \)
-$$ A^T = \begin{bmatrix}
-2 & 3 \\
--1 & 4
-\end{bmatrix} $$
+**Diagonales principales:**
+- $1\cdot1\cdot0 = 0$
+- $2\cdot4\cdot5 = 40$
+- $3\cdot0\cdot6 = 0$
+
+**Diagonales secundarias:**
+- $3\cdot1\cdot5 = 15$
+- $2\cdot0\cdot1 = 0$
+- $1\cdot4\cdot6 = 24$
+
+**Resultado:**
+$$\det(E) = (0 + 40 + 0) - (15 + 0 + 24) = 1$$
+
+---
+
+### Matriz F
+
+**Extensión:**
+
+$$\det(F) = \begin{pmatrix}
+2 & -1 & 3 \\
+1 & 4 & 0 \\
+3 & 2 & -2 \\
+\hline
+2 & -1 & 3 \\
+1 & 4 & 0
+\end{pmatrix}$$
+
+**Diagonales principales:**
+- $2\cdot4\cdot(-2) = -16$
+- $(-1)\cdot0\cdot3 = 0$
+- $3\cdot1\cdot2 = 6$
+
+**Diagonales secundarias:**
+- $3\cdot4\cdot3 = 36$
+- $2\cdot0\cdot2 = 0$
+- $(-2)\cdot1\cdot(-1) = 2$
+
+**Resultado:**
+$$\det(F) = (-16 + 0 + 6) - (36 + 0 + 2) = -48$$
+
 
 ---
 
