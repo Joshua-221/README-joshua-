@@ -199,6 +199,129 @@ $$
 
 $$\det(G) = 3 - 12 = -9$$
 
+---
+
+## Ejercicio 4: Verificar propiedades
+
+### Objetivo
+Comprobar propiedades básicas del determinante usando matrices 2x2.
+
+---
+
+Dadas:
+
+$$ A = \begin{pmatrix} 2 & 1 \\ 1 & 3 \end{pmatrix}, \quad
+B = \begin{pmatrix} 1 & 2 \\ 3 & 1 \end{pmatrix} $$
+
+Verifica:
+
+- $\det(AB) = \det(A)\det(B)$  
+- $\det(A^T) = \det(A)$
+
+---
+
+### Solución
+
+**Determinantes individuales:**
+
+- $\det(A) = 6 - 1 = 5$  
+- $\det(B) = 1 - 6 = -5$
+
+---
+
+### Producto \(AB\)
+
+$$
+AB = 
+\begin{pmatrix}
+5 & 5 \\
+10 & 5
+\end{pmatrix}
+$$
+
+**Determinante del producto:**
+
+$$\det(AB) = 25 - 50 = -25$$  
+
+**Verificación:**  
+$$\det(A)\det(B) = 5(-5) = -25$$  
+Se cumple.
+
+---
+
+### Transpuesta de A
+
+$$
+A^T = 
+\begin{pmatrix}
+2 & 1 \\
+1 & 3
+\end{pmatrix}
+$$
+
+**Determinante de la transpuesta:**  
+$$\det(A^T) = 6 - 1 = 5$$
+
+**Verificación:**  
+\(\det(A^T) = \det(A)\)  
+También se cumple.
+
+---
+
+## Ejercicio 5: Aplicación geométrica
+
+### Objetivo
+Entender cómo el determinante se relaciona con áreas y orientación.
+
+---
+
+Dados los vectores:  
+\(\vec{u} = (3, 2)\) y \(\vec{v} = (1, 4)\).
+
+a) Calcula el área del paralelogramo que forman.  
+b) ¿Cambia el área al intercambiar los vectores?  
+c) Explica qué indica el signo del determinante.
+
+---
+
+### Solución
+
+### a) Área del paralelogramo
+
+Se forma la matriz:
+
+$$
+\begin{pmatrix}
+3 & 1 \\
+2 & 4
+\end{pmatrix}
+$$
+
+Determinante:
+
+$$\det = 12 - 2 = 10$$
+
+El área es **10**.
+
+---
+
+### b) Intercambiando los vectores
+
+Nueva matriz:
+
+$$
+\begin{pmatrix}
+1 & 3 \\
+4 & 2
+\end{pmatrix}
+$$
+
+Determinante:
+
+$$\det = 2 - 12 = -10$$
+
+El área sigue siendo **10**, pero
+
 
 
 
