@@ -2,7 +2,7 @@
 
 ## Información del Estudiante
 
-- **Nombre:** Joshua Cruz Hernández  
+- **Nombre:** Joshua Cruz
 - **Grupo:** 1C  
 - **Carrera:** TSW  
 - **Cuatrimestre:** Primero  
