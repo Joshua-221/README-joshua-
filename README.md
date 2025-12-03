@@ -9,124 +9,295 @@
 - **Profesor:** Jorge Javier Pedrozo Romero  
 
 ---
+# Práctica: Resolución de Sistemas de Ecuaciones por Métodos de Álgebra Lineal
 
-# Descripción del Proyecto
-
-Este repositorio contiene mi desarrollo correspondiente a la práctica de **Fundamentos de Álgebra**, implementando operaciones básicas con matrices mediante JavaScript.
-
-La práctica incluye:
-
-- Cálculo de determinantes  
-- Suma y resta de matrices  
-- Multiplicación de matrices  
-- Representación en consola con formato ASCII  
-- Explicación paso a paso de cada proceso  
-
-El objetivo es comprender los fundamentos del álgebra lineal y reforzar habilidades lógicas y matemáticas.
+Este documento contiene el desarrollo completo del ejercicio donde se resuelve un sistema de ecuaciones utilizando **Gauss**, **Gauss-Jordan** y **Matriz Inversa**, incluyendo todos los procedimientos paso a paso y resultados finales.
 
 ---
 
-# Ejercicio 1: Determinante de una matriz 2×2
+# 📌 Ejercicio 1: Resolver el sistema con todos los métodos
 
-Dada la matriz:
-A = | a b |
-| c d |
+Sistema a resolver:
 
+$$
+\begin{cases}
+x + y + z = 6 \\
+2x - y + z = 3 \\
+x + 2y - z = 2
+\end{cases}
+$$
 
-El determinante se obtiene con la fórmula:
+Matriz de coeficientes:
 
-det(A) = ad - bc
+$$
+A=
+\begin{bmatrix}
+1 & 1 & 1\\
+2 & -1 & 1\\
+1 & 2 & -1
+\end{bmatrix}
+$$
 
-Ejemplo utilizado en esta práctica:
+Matriz de términos independientes:
 
-A = | 2 1 |
-| 1 3 |
-
-Cálculo:
-
-det(A) = (23) - (11) = 6 - 1 = 5
-
----
-
-# Ejercicio 2: Suma, Resta y Multiplicación de Matrices
-
-Matrices dadas:
-
-A = | 2 1 |
-| 1 3 |
-B = | 1 2 |
-| 3 1 |
-
-
----
-
-## ➕ Suma de matrices (A + B)
-
-A + B = | 2+1 1+2 |
-| 1+3 3+1 |
-A + B = | 3 3 |
-| 4 4 |
-
+$$
+B=
+\begin{bmatrix}
+6 \\
+3 \\
+2
+\end{bmatrix}
+$$
 
 ---
 
-## ➖ Resta de matrices (A - B)
+# ✨ Método 1: Eliminación de Gauss
 
-A - B = | 2-1 1-2 |
-| 1-3 3-1 |
-A - B = | 1 -1 |
-| -2 2 |
+### 🔹 Matriz aumentada inicial
 
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6 \\
+2 & -1 & 1 & 3 \\
+1 & 2 & -1 & 2
+\end{array}
+\right]
+$$
+
+### 🔹 Operaciones por filas  
+R2 → R2 − 2R1  
+R3 → R3 − R1
+
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6 \\
+0 & -3 & -1 & -9 \\
+0 & 1 & -2 & -4
+\end{array}
+\right]
+$$
+
+Normalizamos R2:  
+R2 → (-1/3)R2
+
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6 \\
+0 & 1 & 1/3 & 3 \\
+0 & 1 & -2 & -4
+\end{array}
+\right]
+$$
+
+R3 → R3 − R2
+
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6 \\
+0 & 1 & 1/3 & 3 \\
+0 & 0 & -7/3 & -7
+\end{array}
+\right]
+$$
+
+### 🔹 Sustitución hacia atrás
+
+De la última ecuación:
+
+\[
+-\frac{7}{3}z = -7 \Rightarrow z = 3
+\]
+
+De la segunda ecuación:
+
+\[
+y + \frac{1}{3}(3) = 3 \Rightarrow y = 2
+\]
+
+De la primera:
+
+\[
+x + 2 + 3 = 6 \Rightarrow x = 1
+\]
+
+### ✔ **Solución por Gauss:**
+**x = 1, y = 2, z = 3**
 
 ---
 
-## ✖ Multiplicación de matrices (AB)
+# ✨ Método 2: Gauss-Jordan
 
-Proceso:
+Matriz aumentada inicial:
 
-AB = | (21 + 13) (22 + 11) |
-| (11 + 33) (12 + 31) |
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6 \\
+2 & -1 & 1 & 3 \\
+1 & 2 & -1 & 2
+\end{array}
+\right]
+$$
 
-Resultado:
+R2 → R2 − 2R1  
+R3 → R3 − R1
 
-AB = | 5 5 |
-| 10 5 |
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6 \\
+0 & -3 & -1 & -9 \\
+0 & 1 & -2 & -4
+\end{array}
+\right]
+$$
+
+Normalización de R2:
+
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6 \\
+0 & 1 & 1/3 & 3 \\
+0 & 1 & -2 & -4
+\end{array}
+\right]
+$$
+
+R1 → R1 − R2  
+R3 → R3 − R2
+
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 0 & 2/3 & 3 \\
+0 & 1 & 1/3 & 3 \\
+0 & 0 & -7/3 & -7
+\end{array}
+\right]
+$$
+
+Normalizamos R3:  
+R3 → (-3/7)R3
+
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 0 & 2/3 & 3 \\
+0 & 1 & 1/3 & 3 \\
+0 & 0 & 1 & 3
+\end{array}
+\right]
+$$
+
+Eliminamos arriba:
+
+R1 → R1 − (2/3)R3  
+R2 → R2 − (1/3)R3  
+
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 0 & 0 & 1 \\
+0 & 1 & 0 & 2 \\
+0 & 0 & 1 & 3
+\end{array}
+\right]
+$$
+
+### ✔ **Solución por Gauss-Jordan:**
+**x = 1, y = 2, z = 3**
 
 ---
 
-# Ejercicio 3: Determinantes de A, B y AB
+# ✨ Método 3: Matriz Inversa
 
-### Determinante de A
+## 🧮 1. Sistema y matriz A
 
-det(A) = (23) - (11) = 5
+Sistema:
 
-### Determinante de B
+$$
+\begin{cases}
+x + y + z = 6 \\
+2x - y + z = 3 \\
+x + 2y - z = 2
+\end{cases}
+$$
 
-det(B) = (11) - (23) = -5
+Matriz A:
 
-### Determinante de AB
-
-det(AB) = (55) - (510) = 25 - 50 = -25
-
-### Verificación de propiedad
-
-det(AB) = det(A) * det(B)
--25 = 5 * -5
-
-✔ Propiedad verificada correctamente.
-
----
-
-# Procesos adicionales incluidos
-
-- Validación de datos numéricos antes de operar.  
-- Impresión de matrices en formato ASCII para mayor claridad.  
-- Separación de cálculos en funciones individuales.  
-- Explicación de cada operación paso a paso.  
-- Comprensión de propiedades matemáticas fundamentales.  
+$$
+A = 
+\begin{bmatrix}
+1 & 1 & 1 \\
+2 & -1 & 1 \\
+1 & 2 & -1
+\end{bmatrix}
+$$
 
 ---
 
+## 🧮 2. Matriz aumentada [A | I]
+
+$$
+\left[
+\begin{array}{ccc|ccc}
+1 & 1 & 1 & 1 & 0 & 0 \\
+2 & -1 & 1 & 0 & 1 & 0 \\
+1 & 2 & -1 & 0 & 0 & 1
+\end{array}
+\right]
+$$
+
+Se realizan operaciones hasta obtener:
+
+$$
+\left[
+\begin{array}{ccc|ccc}
+1 & 0 & 0 & -1/7 & 3/7 & 2/7 \\
+0 & 1 & 0 & 3/7 & -2/7 & 1/7 \\
+0 & 0 & 1 & 5/7 & -1/7 & -3/7
+\end{array}
+\right]
+$$
+
+La parte derecha es \(A^{-1}\):
+
+### ✔ Matriz inversa encontrada:
+
+$$
+A^{-1} =
+\frac{1}{7}
+\begin{bmatrix}
+-1 & 3 & 2 \\
+3 & -2 & 1 \\
+5 & -1 & -3
+\end{bmatrix}
+$$
+
+---
+
+## 🧮 3. Cálculo de la solución
+
+Aplicamos:
+
+\[
+X = A^{-1}B
+\]
+
+Da como resultado:
+
+x = 1
+y = 2
+z = 3
+
+---
+
+---
 # Licencia
 
 Proyecto académico bajo licencia **MIT**.
