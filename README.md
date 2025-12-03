@@ -1,28 +1,132 @@
-# Portafolio de Evidencias – Fundamentos de Álgebra (Unidad III)
+# Fundamentos de Álgebra - Práctica 1 (Formato ASCII)
 
-Este repositorio contiene las evidencias correspondientes a la Unidad III. Incluye las actividades desarrolladas con HTML, CSS y JavaScript, siguiendo los lineamientos solicitados en clase.
+## Información del Estudiante
 
-> PD: Debido a limitaciones técnicas al subir carpetas completas desde Safari, las actividades se entregan como archivos individuales.  
-> La versión completa y funcional del portafolio fue enviada al docente de manera privada.
+- **Nombre:** Joshua Cruz Hernández  
+- **Grupo:** 1C  
+- **Carrera:** TSW  
+- **Cuatrimestre:** Primero  
+- **Profesor:** Jorge Javier Pedrozo Romero  
 
-## Actividades integradas
+---
 
-- Actividad 2: Visualizador de la recta numérica  
-- Actividad 4: Calculadora de números complejos  
-- Actividad 6: Expresiones algebraicas  
-- Actividad 8: Calculadora de operaciones algebraicas  
-- Actividad 10: Productos notables  
-- Actividad 12: División sintética / Factorización  
-- Actividad 14: Ecuaciones de primer grado  
+# Descripción del Proyecto
 
-## Tecnologías utilizadas
+Este repositorio contiene mi desarrollo correspondiente a la práctica de **Fundamentos de Álgebra**, implementando operaciones básicas con matrices mediante JavaScript.
 
-- HTML5  
-- CSS3  
-- JavaScript  
-- Math.js para operaciones simbólicas  
-- Git y GitHub para control de versiones  
+La práctica incluye:
 
-## Autor
+- Cálculo de determinantes  
+- Suma y resta de matrices  
+- Multiplicación de matrices  
+- Representación en consola con formato ASCII  
+- Explicación paso a paso de cada proceso  
 
-**Joshua Cruz – Grupo 1C**
+El objetivo es comprender los fundamentos del álgebra lineal y reforzar habilidades lógicas y matemáticas.
+
+---
+
+# Ejercicio 1: Determinante de una matriz 2×2
+
+Dada la matriz:
+A = | a b |
+| c d |
+
+
+El determinante se obtiene con la fórmula:
+
+det(A) = ad - bc
+
+Ejemplo utilizado en esta práctica:
+
+A = | 2 1 |
+| 1 3 |
+
+Cálculo:
+
+det(A) = (23) - (11) = 6 - 1 = 5
+
+---
+
+# Ejercicio 2: Suma, Resta y Multiplicación de Matrices
+
+Matrices dadas:
+
+A = | 2 1 |
+| 1 3 |
+B = | 1 2 |
+| 3 1 |
+
+
+---
+
+## ➕ Suma de matrices (A + B)
+
+A + B = | 2+1 1+2 |
+| 1+3 3+1 |
+A + B = | 3 3 |
+| 4 4 |
+
+
+---
+
+## ➖ Resta de matrices (A - B)
+
+A - B = | 2-1 1-2 |
+| 1-3 3-1 |
+A - B = | 1 -1 |
+| -2 2 |
+
+
+---
+
+## ✖ Multiplicación de matrices (AB)
+
+Proceso:
+
+AB = | (21 + 13) (22 + 11) |
+| (11 + 33) (12 + 31) |
+
+Resultado:
+
+AB = | 5 5 |
+| 10 5 |
+
+---
+
+# Ejercicio 3: Determinantes de A, B y AB
+
+### Determinante de A
+
+det(A) = (23) - (11) = 5
+
+### Determinante de B
+
+det(B) = (11) - (23) = -5
+
+### Determinante de AB
+
+det(AB) = (55) - (510) = 25 - 50 = -25
+
+### Verificación de propiedad
+
+det(AB) = det(A) * det(B)
+-25 = 5 * -5
+
+✔ Propiedad verificada correctamente.
+
+---
+
+# Procesos adicionales incluidos
+
+- Validación de datos numéricos antes de operar.  
+- Impresión de matrices en formato ASCII para mayor claridad.  
+- Separación de cálculos en funciones individuales.  
+- Explicación de cada operación paso a paso.  
+- Comprensión de propiedades matemáticas fundamentales.  
+
+---
+
+# Licencia
+
+Proyecto académico bajo licencia **MIT**.
