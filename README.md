@@ -1,234 +1,303 @@
-# Tecnológico de Software
-## Materia: Fundamentos de álgebra
-## Alumno: Joshua Isaí Cruz Mosqueda
-## Actividad #16.  Matrices documentación
-___
-#Objetivo 
+# Fundamentos de Álgebra - Práctica 1 (Formato ASCII)
 
-Entender más con las clasificaciones y operaciones básicas de las matrices usando multiplicación, transposición, suma y resta 
-___
+## Información del Estudiante
 
-## Índice
-•⁠  ⁠[Ejercicio 1: Clasificación de matrices](#ejercicio-1-clasificación-de-matrices)
-•⁠  ⁠[Ejercicio 2: Operaciones con matrices](#ejercicio-2-operaciones-con-matrices)
-•⁠  ⁠[Ejercicio 3: Multiplicación cadena](#ejercicio-3-multiplicación-cadena)
+- **Nombre:** Joshua Cruz
+- **Grupo:** 1C  
+- **Carrera:** TSW  
+- **Cuatrimestre:** Primero  
+- **Profesor:** Jorge Javier Pedrozo Romero  
+
+---
+# Práctica: Resolución de Sistemas de Ecuaciones por Métodos de Álgebra Lineal
+
+Este documento contiene el desarrollo completo del ejercicio donde se resuelve un sistema de ecuaciones utilizando **Gauss**, **Gauss-Jordan** y **Matriz Inversa**, incluyendo todos los procedimientos paso a paso y resultados finales.
 
 ---
 
-# Ejercicio 1: Clasificación de matrices
+# 📌 Ejercicio 1: Resolver el sistema con todos los métodos
 
-## Objetivo del ejercicio: 
+Sistema a resolver:
 
-poder identificar y clasificar diferentes tipos de matrices con respecto a sus propiedades 
+$$
+\begin{cases}
+x + y + z = 6 \\
+2x - y + z = 3 \\
+x + 2y - z = 2
+\end{cases}
+$$
 
+Matriz de coeficientes:
 
-### a) 
+$$
+A=
+\begin{bmatrix}
+1 & 1 & 1\\
+2 & -1 & 1\\
+1 & 2 & -1
+\end{bmatrix}
+$$
 
-$$A = \begin{bmatrix}
-1 & 0 \\
-0 & 1 
-\end{bmatrix}$$
+Matriz de términos independientes:
 
-Es una matriz identidad, porque su diagonal inicial está compuesta por *unos* y los demás elementos con ceros. 
-
-
-### b) 
-
-$$ B = \begin{bmatrix}
-3 & 0 & 0 \\
-0 & -2 & 0 \\
-0 & 0 & 5 
-\end{bmatrix}  $$
-
-Es una matriz diagonal, porque los elementos están compuestos por ceros *exceptuando* su diagonal inicial.
-
-
-### c)
-
-$$C = \begin{bmatrix}
-2 & 1 & 4 \\
-1 & 3 & 5 \\
-4 & 5 & 6 
-\end{bmatrix}  $$
-
-Es una matriz simétrica, ya que $a_ij = a_ji$ si es simétrica con respecto a su diagonal inicial.
-
-
-### d)
-
-$$ D = \begin{bmatrix}
-1 & 2 & 3 \\
-0 & 4 & 5 \\
-0 & 0 & 6 
-\end{bmatrix}  $$
-
-Es una matriz triangular superior, ya que los elementos debajo de la diagonal inicial son ceros.
+$$
+B=
+\begin{bmatrix}
+6 \\
+3 \\
+2
+\end{bmatrix}
+$$
 
 ---
 
-# Ejercicio 2: Operaciones con matrices
+# ✨ Método 1: Eliminación de Gauss
 
-## Objetivo del ejercicio:
+### 🔹 Matriz aumentada inicial
 
-Realizar operaciones aritméticas básicas con matrices, incluyendo suma, resta, multiplicación y transposición.
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6 \\
+2 & -1 & 1 & 3 \\
+1 & 2 & -1 & 2
+\end{array}
+\right]
+$$
 
-Dadas las matrices:
+### 🔹 Operaciones por filas  
+R2 → R2 − 2R1  
+R3 → R3 − R1
 
-$$ A = \begin{bmatrix}
-2 & -1 \\
-3 & 4 
-\end{bmatrix}, \quad B = \begin{bmatrix}
-5 & 2 \\
--1 & 3 
-\end{bmatrix} $$
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6 \\
+0 & -3 & -1 & -9 \\
+0 & 1 & -2 & -4
+\end{array}
+\right]
+$$
 
-Calcula: 
+Normalizamos R2:  
+R2 → (-1/3)R2
 
-### a) Suma de matrices: \( A + B \)
-$$ A + B = \begin{bmatrix}
-2 + 5 & -1 + 2 \\
-3 + (-1) & 4 + 3
-\end{bmatrix} = \begin{bmatrix}
-7 & 1 \\
-2 & 7
-\end{bmatrix} $$
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6 \\
+0 & 1 & 1/3 & 3 \\
+0 & 1 & -2 & -4
+\end{array}
+\right]
+$$
 
-### b) Resta  y  multiplicación de matrices: \(2A - B \)
+R3 → R3 − R2
 
-$$ 2A - B = 2 \begin{bmatrix}
-2 & -1 \\
-3 & 4
-\end{bmatrix} - \begin{bmatrix}
-5 & 2 \\    
--1 & 3
-\end{bmatrix} = \begin{bmatrix}
-4 & -2 \\
-6 & 8
-\end{bmatrix} - \begin{bmatrix}
-5 & 2 \\
--1 & 3
-\end{bmatrix} = \begin{bmatrix}
--1 & -4 \\
-7 & 5
-\end{bmatrix} $$
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6 \\
+0 & 1 & 1/3 & 3 \\
+0 & 0 & -7/3 & -7
+\end{array}
+\right]
+$$
 
-### c) Multiplicación de matrices: \( AB \)
-$$ AB = \begin{bmatrix}
-2 & -1 \\
-3 & 4
-\end{bmatrix} \begin{bmatrix}
-5 & 2 \\
--1 & 3
-\end{bmatrix} = \begin{bmatrix}
-2\cdot5+(-1)\cdot(-1) & 2\cdot2+(-1)\cdot3\\
-3\cdot5+4\cdot(-1)    & 3\cdot2+4\cdot3
-\end{bmatrix} = \begin{bmatrix}
-11 & 1 \\
-11 & 18
-\end{bmatrix} $$
+### 🔹 Sustitución hacia atrás
 
-### d) Multiplicación de matrices: \( BA \)
-$$ BA = \begin{bmatrix}
-5 & 2 \\
--1 & 3
-\end{bmatrix} \begin{bmatrix}
-2 & -1 \\
-3 & 4
-\end{bmatrix} = \begin{bmatrix}
-(5\cdot2) + (2\cdot3) & (5\cdot-1) + (2\cdot4) \\
-(-1\cdot2) + (3\cdot3) & (-1\cdot-1) + (3\cdot4)
-\end{bmatrix} = \begin{bmatrix}
-16 & 3 \\
-7 & 13
-\end{bmatrix} $$
+De la última ecuación:
 
-### e) Transpuesta de la matriz A: \( A^T \)
-$$ A^T = \begin{bmatrix}
-2 & 3 \\
--1 & 4
-\end{bmatrix} $$
+\[
+-\frac{7}{3}z = -7 \Rightarrow z = 3
+\]
+
+De la segunda ecuación:
+
+\[
+y + \frac{1}{3}(3) = 3 \Rightarrow y = 2
+\]
+
+De la primera:
+
+\[
+x + 2 + 3 = 6 \Rightarrow x = 1
+\]
+
+### ✔ **Solución por Gauss:**
+**x = 1, y = 2, z = 3**
 
 ---
 
-# Ejercicio 3: Multiplicación cadena
+# ✨ Método 2: Gauss-Jordan
 
-## Objetivo del ejercicio:
-Verificar la propiedad asociativa de la multiplicación de matrices mediante el cálculo de productos en cadena.
+Matriz aumentada inicial:
+
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6 \\
+2 & -1 & 1 & 3 \\
+1 & 2 & -1 & 2
+\end{array}
+\right]
+$$
+
+R2 → R2 − 2R1  
+R3 → R3 − R1
+
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6 \\
+0 & -3 & -1 & -9 \\
+0 & 1 & -2 & -4
+\end{array}
+\right]
+$$
+
+Normalización de R2:
+
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6 \\
+0 & 1 & 1/3 & 3 \\
+0 & 1 & -2 & -4
+\end{array}
+\right]
+$$
+
+R1 → R1 − R2  
+R3 → R3 − R2
+
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 0 & 2/3 & 3 \\
+0 & 1 & 1/3 & 3 \\
+0 & 0 & -7/3 & -7
+\end{array}
+\right]
+$$
+
+Normalizamos R3:  
+R3 → (-3/7)R3
+
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 0 & 2/3 & 3 \\
+0 & 1 & 1/3 & 3 \\
+0 & 0 & 1 & 3
+\end{array}
+\right]
+$$
+
+Eliminamos arriba:
+
+R1 → R1 − (2/3)R3  
+R2 → R2 − (1/3)R3  
+
+$$
+\left[
+\begin{array}{ccc|c}
+1 & 0 & 0 & 1 \\
+0 & 1 & 0 & 2 \\
+0 & 0 & 1 & 3
+\end{array}
+\right]
+$$
+
+### ✔ **Solución por Gauss-Jordan:**
+**x = 1, y = 2, z = 3**
 
 ---
 
-Verificar que $(AB)C = A(BC)$ 
+# ✨ Método 3: Matriz Inversa
 
-Dadas las matrices:
+## 🧮 1. Sistema y matriz A
 
-$$ A = \begin{bmatrix}
-1 & 2 \\
-3 & 4 
-\end{bmatrix}, \quad B = \begin{bmatrix}
-2 & 0 \\
-1 & 3 
-\end{bmatrix}, \quad C = \begin{bmatrix}
-1 & 1 \\
-0 & 2
-\end{bmatrix} $$
+Sistema:
 
-### a) Calcular \( (AB)C \)
-$$ AB = \begin{bmatrix}
-1 & 2 \\
-3 & 4
-\end{bmatrix} \begin{bmatrix}
-2 & 0 \\
-1 & 3
-\end{bmatrix} = \begin{bmatrix}
-(1\cdot2) + (2\cdot1) & (1\cdot0) + (2\cdot3) \\
-(3\cdot2) + (4\cdot1) & (3\cdot0) + (4\cdot3)
-\end{bmatrix} = \begin{bmatrix}
-4 & 6 \\
-10 & 12
-\end{bmatrix} $$
-$$ (AB)C = \begin{bmatrix}
-4 & 6 \\
-10 & 12
-\end{bmatrix} \begin{bmatrix}
-1 & 1 \\
-0 & 2
-\end{bmatrix} = \begin{bmatrix}
-(4\cdot1) + (6\cdot0) & (4\cdot1) + (6\cdot2) \\
-(10\cdot1) + (12\cdot0) & (10\cdot1) + (12\cdot2)
-\end{bmatrix} = \begin{bmatrix}
-4 & 16 \\
-10 & 34
-\end{bmatrix} $$
+$$
+\begin{cases}
+x + y + z = 6 \\
+2x - y + z = 3 \\
+x + 2y - z = 2
+\end{cases}
+$$
 
-### b) Calcular \( A(BC) \)
-$$ BC = \begin{bmatrix}
-2 & 0 \\
-1 & 3
-\end{bmatrix} \begin{bmatrix}
-1 & 1 \\
-0 & 2
-\end{bmatrix} = \begin{bmatrix}
-(2\cdot1) + (0\cdot0) & (2\cdot1) + (0\cdot2) \\
-(1\cdot1) + (3\cdot0) & (1\cdot1) + (3\cdot2)
-\end{bmatrix} = \begin{bmatrix}
-2 & 2 \\
-1 & 7
-\end{bmatrix} $$
-$$ A(BC) = \begin{bmatrix}
-1 & 2 \\
-3 & 4
-\end{bmatrix} \begin{bmatrix}
-2 & 2 \\
-1 & 7
-\end{bmatrix} = \begin{bmatrix}
-(1\cdot2) + (2\cdot1) & (1\cdot2) + (2\cdot7) \\
-(3\cdot2) + (4\cdot1) & (3\cdot2) + (4\cdot7)
-\end{bmatrix} = \begin{bmatrix}
-4 & 16 \\
-10 & 34
-\end{bmatrix} $$
+Matriz A:
 
-Conclusión: Por lo que se verificará que $(AB)C = A(BC)$.
+$$
+A = 
+\begin{bmatrix}
+1 & 1 & 1 \\
+2 & -1 & 1 \\
+1 & 2 & -1
+\end{bmatrix}
+$$
 
+---
 
+## 🧮 2. Matriz aumentada [A | I]
 
+$$
+\left[
+\begin{array}{ccc|ccc}
+1 & 1 & 1 & 1 & 0 & 0 \\
+2 & -1 & 1 & 0 & 1 & 0 \\
+1 & 2 & -1 & 0 & 0 & 1
+\end{array}
+\right]
+$$
+
+Se realizan operaciones hasta obtener:
+
+$$
+\left[
+\begin{array}{ccc|ccc}
+1 & 0 & 0 & -1/7 & 3/7 & 2/7 \\
+0 & 1 & 0 & 3/7 & -2/7 & 1/7 \\
+0 & 0 & 1 & 5/7 & -1/7 & -3/7
+\end{array}
+\right]
+$$
+
+La parte derecha es \(A^{-1}\):
+
+### ✔ Matriz inversa encontrada:
+
+$$
+A^{-1} =
+\frac{1}{7}
+\begin{bmatrix}
+-1 & 3 & 2 \\
+3 & -2 & 1 \\
+5 & -1 & -3
+\end{bmatrix}
+$$
+
+---
+
+## 🧮 3. Cálculo de la solución
+
+Aplicamos:
+
+\[
+X = A^{-1}B
+\]
+
+Da como resultado:
+
+x = 1
+y = 2
+z = 3
+
+---
+
+---
+# Licencia
+
+Proyecto académico bajo licencia **MIT**.
